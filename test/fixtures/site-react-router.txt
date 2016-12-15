@@ -3,7 +3,7 @@ module.exports = {
   "childRoutes": [
     {
       "path": "about",
-      getComponent: (nextState, cb) => {
+      getComponent: function (nextState, cb) {
         require.ensure([], function (require) {
           const page = require("site/about.txt")
           cb(null, page.default || page)
@@ -12,7 +12,7 @@ module.exports = {
     },
     {
       "path": "contact",
-      getComponent: (nextState, cb) => {
+      getComponent: function (nextState, cb) {
         require.ensure([], function (require) {
           const page = require("site/contact.js")
           cb(null, page.default || page)
@@ -24,7 +24,7 @@ module.exports = {
       "childRoutes": [
         {
           "path": "a",
-          getComponent: (nextState, cb) => {
+          getComponent: function (nextState, cb) {
             require.ensure([], function (require) {
               const page = require("site/product/a.js")
               cb(null, page.default || page)
@@ -33,7 +33,7 @@ module.exports = {
         },
         {
           "path": "b",
-          getComponent: (nextState, cb) => {
+          getComponent: function (nextState, cb) {
             require.ensure([], function (require) {
               const page = require("site/product/b.js")
               cb(null, page.default || page)
@@ -45,7 +45,7 @@ module.exports = {
           "childRoutes": [
             {
               "path": "x",
-              getComponent: (nextState, cb) => {
+              getComponent: function (nextState, cb) {
                 require.ensure([], function (require) {
                   const page = require("site/product/details/x.md")
                   cb(null, page.default || page)
@@ -54,7 +54,7 @@ module.exports = {
             },
             {
               "path": "y",
-              getComponent: (nextState, cb) => {
+              getComponent: function (nextState, cb) {
                 require.ensure([], function (require) {
                   const page = require("site/product/details/y.md")
                   cb(null, page.default || page)
@@ -62,7 +62,7 @@ module.exports = {
               }
             }
           ],
-          getIndexRoute: (nextState, cb) => {
+          getIndexRoute: function (nextState, cb) {
             require.ensure([], function (require) {
               const page = require("site/product/details/index.js")
               cb(null, { component: page.default || page })
@@ -70,7 +70,7 @@ module.exports = {
           }
         },
         {
-          getComponent: (nextState, cb) => {
+          getComponent: function (nextState, cb) {
             require.ensure([], function (require) {
               const page = require("site/product/404.js")
               cb(null, page.default || page)
@@ -79,13 +79,13 @@ module.exports = {
           "path": "*"
         }
       ],
-      getComponent: (nextState, cb) => {
+      getComponent: function (nextState, cb) {
         require.ensure([], function (require) {
           const page = require("site/product/_layout.js")
           cb(null, page.default || page)
         })
       },
-      getIndexRoute: (nextState, cb) => {
+      getIndexRoute: function (nextState, cb) {
         require.ensure([], function (require) {
           const page = require("site/product/index.js")
           cb(null, { component: page.default || page })
@@ -93,7 +93,7 @@ module.exports = {
       }
     },
     {
-      getComponent: (nextState, cb) => {
+      getComponent: function (nextState, cb) {
         require.ensure([], function (require) {
           const page = require("site/404.js")
           cb(null, page.default || page)
@@ -102,13 +102,13 @@ module.exports = {
       "path": "*"
     }
   ],
-  getComponent: (nextState, cb) => {
+  getComponent: function (nextState, cb) {
     require.ensure([], function (require) {
       const page = require("site/_layout.js")
       cb(null, page.default || page)
     })
   },
-  getIndexRoute: (nextState, cb) => {
+  getIndexRoute: function (nextState, cb) {
     require.ensure([], function (require) {
       const page = require("site/index.js")
       cb(null, { component: page.default || page })
