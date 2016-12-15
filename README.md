@@ -20,7 +20,7 @@ render((
 ), document.getElementById('react'))
 ```
 
-Each route component will be loaded with System.import for code splitting with zero configuration (requires webpack 2.1).
+Each route component will be loaded with require.ensure for code splitting with zero configuration
 
 ### Import a list of routes and their corresponding files
 

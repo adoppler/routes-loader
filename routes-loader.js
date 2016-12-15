@@ -104,9 +104,11 @@ function reactRouterRoutes(routes) {
       loaderCb = 'cb(null, { component: page.default || page })'
     }
 
-    return `${whitespace}${loaderFn}(nextState, cb) {
-${indent}  System.import(${file})
-${indent}    .then(page => { ${loaderCb} }, error => { cb(error, null) })
+    return `${whitespace}${loaderFn}: (nextState, cb) => {
+${indent}  require.ensure([], function (require) {
+${indent}    const page = require(${file})
+${indent}    ${loaderCb}
+${indent}  })
 ${indent}}`
   })
 }

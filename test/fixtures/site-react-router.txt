@@ -3,16 +3,20 @@ module.exports = {
   "childRoutes": [
     {
       "path": "about",
-      getComponent(nextState, cb) {
-        System.import("site/about.txt")
-          .then(page => { cb(null, page.default || page) }, error => { cb(error, null) })
+      getComponent: (nextState, cb) => {
+        require.ensure([], function (require) {
+          const page = require("site/about.txt")
+          cb(null, page.default || page)
+        })
       }
     },
     {
       "path": "contact",
-      getComponent(nextState, cb) {
-        System.import("site/contact.js")
-          .then(page => { cb(null, page.default || page) }, error => { cb(error, null) })
+      getComponent: (nextState, cb) => {
+        require.ensure([], function (require) {
+          const page = require("site/contact.js")
+          cb(null, page.default || page)
+        })
       }
     },
     {
@@ -20,16 +24,20 @@ module.exports = {
       "childRoutes": [
         {
           "path": "a",
-          getComponent(nextState, cb) {
-            System.import("site/product/a.js")
-              .then(page => { cb(null, page.default || page) }, error => { cb(error, null) })
+          getComponent: (nextState, cb) => {
+            require.ensure([], function (require) {
+              const page = require("site/product/a.js")
+              cb(null, page.default || page)
+            })
           }
         },
         {
           "path": "b",
-          getComponent(nextState, cb) {
-            System.import("site/product/b.js")
-              .then(page => { cb(null, page.default || page) }, error => { cb(error, null) })
+          getComponent: (nextState, cb) => {
+            require.ensure([], function (require) {
+              const page = require("site/product/b.js")
+              cb(null, page.default || page)
+            })
           }
         },
         {
@@ -37,55 +45,73 @@ module.exports = {
           "childRoutes": [
             {
               "path": "x",
-              getComponent(nextState, cb) {
-                System.import("site/product/details/x.md")
-                  .then(page => { cb(null, page.default || page) }, error => { cb(error, null) })
+              getComponent: (nextState, cb) => {
+                require.ensure([], function (require) {
+                  const page = require("site/product/details/x.md")
+                  cb(null, page.default || page)
+                })
               }
             },
             {
               "path": "y",
-              getComponent(nextState, cb) {
-                System.import("site/product/details/y.md")
-                  .then(page => { cb(null, page.default || page) }, error => { cb(error, null) })
+              getComponent: (nextState, cb) => {
+                require.ensure([], function (require) {
+                  const page = require("site/product/details/y.md")
+                  cb(null, page.default || page)
+                })
               }
             }
           ],
-          getIndexRoute(nextState, cb) {
-            System.import("site/product/details/index.js")
-              .then(page => { cb(null, { component: page.default || page }) }, error => { cb(error, null) })
+          getIndexRoute: (nextState, cb) => {
+            require.ensure([], function (require) {
+              const page = require("site/product/details/index.js")
+              cb(null, { component: page.default || page })
+            })
           }
         },
         {
-          getComponent(nextState, cb) {
-            System.import("site/product/404.js")
-              .then(page => { cb(null, page.default || page) }, error => { cb(error, null) })
+          getComponent: (nextState, cb) => {
+            require.ensure([], function (require) {
+              const page = require("site/product/404.js")
+              cb(null, page.default || page)
+            })
           },
           "path": "*"
         }
       ],
-      getComponent(nextState, cb) {
-        System.import("site/product/_layout.js")
-          .then(page => { cb(null, page.default || page) }, error => { cb(error, null) })
+      getComponent: (nextState, cb) => {
+        require.ensure([], function (require) {
+          const page = require("site/product/_layout.js")
+          cb(null, page.default || page)
+        })
       },
-      getIndexRoute(nextState, cb) {
-        System.import("site/product/index.js")
-          .then(page => { cb(null, { component: page.default || page }) }, error => { cb(error, null) })
+      getIndexRoute: (nextState, cb) => {
+        require.ensure([], function (require) {
+          const page = require("site/product/index.js")
+          cb(null, { component: page.default || page })
+        })
       }
     },
     {
-      getComponent(nextState, cb) {
-        System.import("site/404.js")
-          .then(page => { cb(null, page.default || page) }, error => { cb(error, null) })
+      getComponent: (nextState, cb) => {
+        require.ensure([], function (require) {
+          const page = require("site/404.js")
+          cb(null, page.default || page)
+        })
       },
       "path": "*"
     }
   ],
-  getComponent(nextState, cb) {
-    System.import("site/_layout.js")
-      .then(page => { cb(null, page.default || page) }, error => { cb(error, null) })
+  getComponent: (nextState, cb) => {
+    require.ensure([], function (require) {
+      const page = require("site/_layout.js")
+      cb(null, page.default || page)
+    })
   },
-  getIndexRoute(nextState, cb) {
-    System.import("site/index.js")
-      .then(page => { cb(null, { component: page.default || page }) }, error => { cb(error, null) })
+  getIndexRoute: (nextState, cb) => {
+    require.ensure([], function (require) {
+      const page = require("site/index.js")
+      cb(null, { component: page.default || page })
+    })
   }
 }

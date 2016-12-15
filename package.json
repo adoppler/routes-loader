@@ -26,7 +26,7 @@
     "directory-tree": "^1.0.0"
   },
   "peerDependencies": {
-    "webpack": "^2.1.0-beta.0"
+    "webpack": "^1.0.0 || ~2.2.0-rc.0"
   },
   "author": "adoppler",
   "license": "MIT",
